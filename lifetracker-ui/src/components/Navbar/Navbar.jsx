@@ -7,7 +7,6 @@ import NavLinks from "../NavLinks/NavLinks"
 export default function Navbar() {
   return (
     <div className='navbar'>
-        Navbar
         <Logo/>
         <NavLinks/>
     </div>
