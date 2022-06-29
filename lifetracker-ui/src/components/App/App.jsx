@@ -1,6 +1,14 @@
 import * as React from "react"
 import "./App.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Navbar from "components/Navbar/Navbar"
+import Landing from "components/Landing/Landing"
+import LoginPage from "components/LoginPage/LoginPage"
+import RegistrationPage from "components/RegistrationPage/RegistrationPage"
+import ActivityPage from "components/ActivityPage/ActivityPage"
+import NutritionPage from "components/NutritionPage/NutritionPage"
+import NotFound from "components/NotFound/NotFound"
+
 
 export default function App() {
   return (
