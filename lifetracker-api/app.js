@@ -4,6 +4,7 @@ const morgan = require("morgan")
 const { NotFoundError } = require("./utils/errors")
 const config = require("./config")
 const authRoutes = require("./routes/auth")
+const security = require("./middleware/security")
 
 const app = express()
 
@@ -17,6 +18,8 @@ app.use(express.json())
 app.use(morgan("tiny"))
 
 app.use("/auth", authRoutes)
+//checks if user exists
+app.use(security.extractUserFromJwt)
 // health check
 app.get("/", function (req, res) {
   return res.status(200).json({

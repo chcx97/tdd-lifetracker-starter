@@ -2,6 +2,7 @@ require("dotenv").config()
 require("colors")
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3001
+const SECRET_KEY = process.env.SECRET_KEY || "secret_dev"
 const IS_TESTING = process.env.NODE_ENV === "test"
 
 // Use dev database, testing database, or via env var, production database
@@ -22,12 +23,14 @@ const BCRYPT_WORK_FACTOR = IS_TESTING ? 1 : 13
 
 console.log("Lifetracker".red)
 console.log("PORT:".blue, PORT)
+console.log("SECRET_KEY:".blue, SECRET_KEY)
 console.log("BCRYPT_WORK_FACTOR".blue, BCRYPT_WORK_FACTOR)
 console.log("Database:".blue, getDatabaseUri())
 console.log("---")
 
 module.exports = {
   PORT,
+  SECRET_KEY,
   IS_TESTING,
   BCRYPT_WORK_FACTOR,
   getDatabaseUri,
