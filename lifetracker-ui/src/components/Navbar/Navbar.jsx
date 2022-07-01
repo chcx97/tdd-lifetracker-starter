@@ -9,6 +9,9 @@ export default function Navbar() {
     <div className='navbar'>
         <Logo/>
         <NavLinks/>
+        <button className='sign-out'>Sign Out</button>
+        <button className='login'>Login</button>
+        <button className='register'>Register</button>
     </div>
   )
 }
