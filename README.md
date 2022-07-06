@@ -35,13 +35,13 @@ Building this application you will accomplish the following:
 - [ ] Store user-authenticated JWT tokens in the browser's local storage for persisted authentication
 - [ ] Employ useEffect and useState hooks to manage application state on the frontend
 
-### Walkthrough Video
+## Walkthrough Video
 
-## Walkthrough 1
+### Walkthrough 1
 
 <img src='walkthrough1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-## Walkthrough
+### Walkthrough
 
 <img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
