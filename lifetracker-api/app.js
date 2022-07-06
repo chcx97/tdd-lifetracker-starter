@@ -17,9 +17,11 @@ app.use(express.json())
 // log requests info
 app.use(morgan("tiny"))
 
+app.use(security.extractUserFromJwt)
+
 app.use("/auth", authRoutes)
 //checks if user exists
-app.use(security.extractUserFromJwt)
+
 // health check
 app.get("/", function (req, res) {
   return res.status(200).json({

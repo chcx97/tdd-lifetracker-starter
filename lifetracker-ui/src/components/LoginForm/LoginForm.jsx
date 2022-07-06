@@ -4,11 +4,14 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from "axios"
 
-export default function LoginForm() {
+export default function LoginForm(props) {
     const navigate = useNavigate()
     const [form, setForm] = useState({email: "", password:""})
     const [error, setError] = useState({})
     const [isLoading, setIsLoading] = useState(false)
+
+
+    console.log(15, form, error, isLoading)
 
     const handleOnChange = (e) =>{
         if (e.target.name === "email"){
@@ -23,22 +26,24 @@ export default function LoginForm() {
     const handleOnSubmit = async (e) => {
         e.preventDefault()
         setIsLoading(true)
-        setErrors((e) => ({ ...e, form: null }))
+        setError((e) => ({ ...e, form: null }))
     
         try {
           const res = await axios.post(`http://localhost:3001/auth/login`, form)
           if (res?.data) {
-            setAppState(res.data)
+            console.log(12,res.data)
+            props.setAppState(res.data)
             setIsLoading(false)
-            navigate("/portal")
+            setForm({email:"", password:""})
+            navigate("/activity")
           } else {
-            setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
+            setError((e) => ({ ...e, form: "Invalid username/password combination" }))
             setIsLoading(false)
           }
         } catch (err) {
           console.log(err)
           const message = err?.response?.data?.error?.message
-          setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
+          setError((e) => ({ ...e, form: message ? String(message) : String(err) }))
           setIsLoading(false)
         }
       }

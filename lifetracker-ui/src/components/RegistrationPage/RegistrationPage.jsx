@@ -5,15 +5,17 @@ import { useState } from "react"
 import axios from "axios"
 
 
-export default function RegistrationPage() {
+export default function RegistrationPage(props) {
+  const navigate = useNavigate()
     return (
         <div className="registration-page">Registration Page
-            <RegistrationForm/>
+        {(Object.keys(props.appState).length===0) ?  <RegistrationForm setAppState={props.setAppState}/> : navigate("/activity")}
+           
         </div>
     )
 }
 
-export function RegistrationForm(){
+export function RegistrationForm(props){
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     const [errors, setErrors] = useState({})
@@ -72,9 +74,9 @@ export function RegistrationForm(){
       })
 
       if (res?.data?.user) {
-        setAppState(res.data)
+        props.setAppState(res.data)
         setIsLoading(false)
-        navigate("/portal")
+        navigate("/activity")
       } else {
         setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
         setIsLoading(false)
