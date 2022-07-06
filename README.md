@@ -35,6 +35,41 @@ Building this application you will accomplish the following:
 - [ ] Store user-authenticated JWT tokens in the browser's local storage for persisted authentication
 - [ ] Employ useEffect and useState hooks to manage application state on the frontend
 
+### Walkthrough Video
+
+<img src='walkthrough1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+### Reflection
+
+* Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
+
+- No, the labs did not help prepare me for the assignment
+
+* If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
+  
+- I would have worked on my css
+
+* Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
+
+- My backend eventually worked after spending 4 hours trying to debug setting errors and syntax errors.
+
+### Open-source libraries used
+
+- Add any links to open-source libraries used in your project.
+
+### Shout out
+
+Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+
+- Big shoutout to my pod and TA Roy
+
+## Wrapping Up and Resources
+
+This is a huge project and represents a complete application with user-owned resources. Accordingly, it can, should, and will test the limits of your capabilities. Do your best and don't be afraid to Google! Especially in regards to any SQL that might be tricky.
+
+
 ## Application Features
 
 This assignment asks SITE interns to accomplish the following:
@@ -822,10 +857,6 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
   - [ ] Commit all work to `git`
 
-
-### Walkthrough Video
-
-<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ### Reflection
 
