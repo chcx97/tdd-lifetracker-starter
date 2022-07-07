@@ -8,7 +8,7 @@ import axios from "axios"
 export default function RegistrationPage(props) {
   const navigate = useNavigate()
     return (
-        <div className="registration-page">Registration Page
+        <div className="registration-page">
         {(Object.keys(props.appState).length===0) ?  <RegistrationForm setAppState={props.setAppState}/> : navigate("/activity")}
            
         </div>

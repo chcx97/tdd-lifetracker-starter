@@ -1,4 +1,4 @@
-import "./NutritionPage"
+import "./NutritionPage.css"
 import React from "react"
 
 export default function NutritionPage() {

@@ -1,4 +1,4 @@
-import "./ActivityPage"
+import "./ActivityPage.css"
 import React from "react"
 
 export default function ActivityPage() {

@@ -17,15 +17,15 @@ export default function NavLinks(props) {
           <span className='logged-in'>
             <Link id='activity' className='links' to="/activity">Activity</Link>
             <Link className='links' to="/nutrition">Nutrition</Link>
-            <button className='sign-out' onClick={logOut}>Sign Out</button>
+            <button id='sign-out' className='sign-out' onClick={logOut}>Sign Out</button>
           </span>
           : null}
           {Object.keys(props.appState).length === 0 ? 
           <span className='logged-out'>
             <Link id='activity' className='links' to="/login">Activity</Link>
             <Link className='links' to="/login">Nutrition</Link>
-            <button className='login' onClick={()=>navigate("/login")} >Login</button>
-            <button className='register' onClick={()=>navigate("/register")}>Sign Up</button>
+            <button id='login' className='login' onClick={()=>navigate("/login")} >Login</button>
+            <button id='register' className='register' onClick={()=>navigate("/register")}>Sign Up</button>
           </span>: null}
       </span>
     </div>

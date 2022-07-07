@@ -6,7 +6,8 @@
     flex-direction: row;
     align-items: center;
     padding: 20px;
-    background-color: rgb(198, 174, 220);
+    background-color: #f0dff2;
+    /* background-color: rgb(198, 174, 220); */
     overflow-x: hidden;
     overflow-y: hidden;
 }
