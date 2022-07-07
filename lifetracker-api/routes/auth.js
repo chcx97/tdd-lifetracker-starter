@@ -9,6 +9,7 @@ const security = require("../middleware/security")
 router.get("/me", security.requireAuthenticatedUser, async (req, res, next)=>{
   try {
     const { email } = res.locals.user
+    console.log(5,email)
     const user = await User.fetchUserByEmail(email)
     const publicUser = await User.createPublicUser(user)
     return res.status(200).json({ user: publicUser })

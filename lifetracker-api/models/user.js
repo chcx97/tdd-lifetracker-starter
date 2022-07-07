@@ -101,10 +101,6 @@ class User {
         
       )
       const user = result.rows[0]
-      if (!user){
-        return {"user is null": 1}
-      }
-  
       return User.createPublicUser(user)
     
    
