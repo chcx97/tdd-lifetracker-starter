@@ -277,13 +277,13 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] If the user is already logged in, it should redirect them to the `/activity` page
       - [ ] If no user is authenticated, it should render the `RegistrationForm.jsx` component and pass it any props it needs
 
-  - [ ] The **`LandingPage.jsx`** component:
+  - [x] The **`LandingPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `landing-page`
-    - [ ] Should render an element with the `className` of `hero`
-      - [ ] Inside it, display a large hero image using an `img` element with the `className` of `hero-img`
-      - [ ] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
-    - [ ] Should allow unauthenticated access
+    - [x] Should render JSX that is wrapped by an element with the `className` of `landing-page`
+    - [x] Should render an element with the `className` of `hero`
+      - [x] Inside it, display a large hero image using an `img` element with the `className` of `hero-img`
+      - [x] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
+    - [x] Should allow unauthenticated access
 
   - [ ] The **`activity`** context
 
@@ -679,33 +679,33 @@ Here are the pieces of functionality that should be built out for the backend:
   - [x] There should now be a full-fledged authentication system in place!
 - **Resources and Permissions**
   - [ ] Next, implement the functionality to allow users to save instances of things they've drank/eaten, so that they can track their own nutrition data! Also make sure users can only access the data that they themselves have created. No other user should be able to see any data owned by another user!
-  - [ ] The **Nutrition** model
-    - [ ] In the `models` directory, create two new files: `models/nutrition.js` and `models/nutrition.test.js`
-      - [ ] The `Nutrition` model should have **at least** the following static methods:
-        - [ ] `createNutrition`
-          - [ ] Should insert a new nutrition instance into the database when values are supplied for all of the required fields: `"name"`, `"category"`, `"calories"`, and `"image_url"`. The `quantity` field should default to `1`.
-          - [ ] The new nutrition instance should have its `user_id` field set to the `id` of the authenticated user
-          - [ ] Should throw a `BadRequestError` (`400` status code) or `UnprocessableEntityError` (`422` status code) when any of those values are not supplied.
-        - [ ] `fetchNutritionById`
-          - [ ] When supplied with a valid `id`, fetches the a nutrition instance from the database that matches that `id`.
-          - [ ] If no nutrition instance matches that `id`, throws a `NotFoundError` (`404` status code)
-        - [ ] `listNutritionForUser`
-          - [ ] Should list all nutrition instances in the database that are owned by a particular user
-    - [ ] In the `models/nutrition.test.js` file:
-      - [ ] Test the `createNutrition` method. Write test cases for:
-        - [ ] A user can create a nutrition instance when they supply the appropriate values
-        - [ ] The appropriate error is thrown when any of the provided errors are invalid
-        - [ ] The user that creates the nutrition instance now owns that nutrition instance
-      - [ ] Test the `fetchNutritionById` method. Write test cases for:
-        - [ ] Fetches the nutrition instance that matches the supplied `id`
-        - [ ] Throws a `NotFoundError` when no nutrition instances matches the supplied `id`
-      - [ ] Test the `listNutritionForUser` method. Write test cases for:
-        - [ ] Fetches all nutrition instances belonging to a particular user
-        - [ ] Doesn't include any nutrition instances belonging to a different user
-        - [ ] Returns an empty array if no nutrition instances are found in the database that belong to that user
-    - [ ] In the `models/nutrition.js` file:
-      - [ ] Implement the features outlined in the tests until they're all passing
-    - [ ] Commit all work to `git`
+  - [x] The **Nutrition** model
+    - [x] In the `models` directory, create two new files: `models/nutrition.js` and `models/nutrition.test.js`
+      - [x] The `Nutrition` model should have **at least** the following static methods:
+        - [x] `createNutrition`
+          - [x] Should insert a new nutrition instance into the database when values are supplied for all of the required fields: `"name"`, `"category"`, `"calories"`, and `"image_url"`. The `quantity` field should default to `1`.
+          - [x] The new nutrition instance should have its `user_id` field set to the `id` of the authenticated user
+          - [x] Should throw a `BadRequestError` (`400` status code) or `UnprocessableEntityError` (`422` status code) when any of those values are not supplied.
+        - [x] `fetchNutritionById`
+          - [x] When supplied with a valid `id`, fetches the a nutrition instance from the database that matches that `id`.
+          - [x] If no nutrition instance matches that `id`, throws a `NotFoundError` (`404` status code)
+        - [x] `listNutritionForUser`
+          - [x] Should list all nutrition instances in the database that are owned by a particular user
+    - [x] In the `models/nutrition.test.js` file:
+      - [x] Test the `createNutrition` method. Write test cases for:
+        - [x] A user can create a nutrition instance when they supply the appropriate values
+        - [x] The appropriate error is thrown when any of the provided errors are invalid
+        - [x] The user that creates the nutrition instance now owns that nutrition instance
+      - [x] Test the `fetchNutritionById` method. Write test cases for:
+        - [x] Fetches the nutrition instance that matches the supplied `id`
+        - [x] Throws a `NotFoundError` when no nutrition instances matches the supplied `id`
+      - [x] Test the `listNutritionForUser` method. Write test cases for:
+        - [x] Fetches all nutrition instances belonging to a particular user
+        - [x] Doesn't include any nutrition instances belonging to a different user
+        - [x] Returns an empty array if no nutrition instances are found in the database that belong to that user
+    - [x] In the `models/nutrition.js` file:
+      - [x] Implement the features outlined in the tests until they're all passing
+    - [x] Commit all work to `git`
   - [ ] The **permissions** middleware
     - [ ] In the `middleware` directory, create two new files: `middleware/permissions.js` and `middleware/permissions.test.js`
       - [ ] Though more functions will need to be added here as the number of resources grows, for now only 1 function needs to be created.
