@@ -2,11 +2,14 @@ import "./RegistrationPage.css"
 import React from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
-import axios from "axios"
-
+// import axios from "axios"
+import apiClient from "../../../services/apiClient"
+import { useAuthContext } from "components/contexts/auth"
 
 export default function RegistrationPage(props) {
   const navigate = useNavigate()
+
+  // const {}
     return (
         <div className="registration-page">
         {(Object.keys(props.appState).length===0) ?  <RegistrationForm setAppState={props.setAppState}/> : navigate("/activity")}
@@ -27,6 +30,7 @@ export function RegistrationForm(props){
         password: "",
         passwordConfirm: "",
   })
+  const {user, setUser, setError, setIsProcessing} = useAuthContext();
   const handleOnInputChange = (event) => {
     if (event.target.name === "password") {
       if (form.passwordConfirm && form.passwordConfirm !== event.target.value) {
@@ -63,30 +67,41 @@ export function RegistrationForm(props){
     } else {
       setErrors((e) => ({ ...e, passwordConfirm: null }))
     }
-
-    try {
-      const res = await axios.post("http://localhost:3001/auth/register", {
-        email: form.email,
-        username: form.username,
-        firstName: form.firstName,
-        lastName: form.lastName,
-        password: form.password,
-      })
-
-      if (res?.data?.user) {
-        props.setAppState(res.data)
-        setIsLoading(false)
-        navigate("/activity")
-      } else {
-        setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
-        setIsLoading(false)
-      }
-    } catch (err) {
-      console.log(err)
-      const message = err?.response?.data?.error?.message
-      setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
+    const {data, error} = await apiClient.signup({email: form.email, username: form.username, firstName: form.firstName, lastName: form.lastName, password: form.password,})
+    if (error) setErrors((e) => ({ ...e, form: error}))
+    console.log(4,data)
+    if (data?.user){
+      setUser(data.user)
+      apiClient.setToken(data.token)
       setIsLoading(false)
+      navigate("/activity")
     }
+    setIsProcessing(false);
+    
+    
+    // try {
+    //   const res = await axios.post("http://localhost:3001/auth/register", {
+    //     email: form.email,
+    //     username: form.username,
+    //     firstName: form.firstName,
+    //     lastName: form.lastName,
+    //     password: form.password,
+    //   })
+
+    //   if (res?.data?.user) {
+    //     props.setAppState(res.data)
+    //     setIsLoading(false)
+    //     navigate("/activity")
+    //   } else {
+    //     setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
+    //     setIsLoading(false)
+    //   }
+    // } catch (err) {
+    //   console.log(err)
+    //   const message = err?.response?.data?.error?.message
+    //   setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
+    //   setIsLoading(false)
+    // }
   }
     return(
         <div className="registration-form">

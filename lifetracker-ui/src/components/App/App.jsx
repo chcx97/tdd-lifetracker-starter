@@ -23,7 +23,7 @@ export default function AppContainer(){
   )
 }
 
-export function App() {
+export function App(props) {
   const [appState, setAppState] = useState({})
   // const {user, setUser, initialized, setInitialized, isProcessing, setIsProcessing, error, setError} = useContext(Auth)
   return (

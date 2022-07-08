@@ -1,0 +1,38 @@
+.nutrition-overview{
+    width: 100%;
+    /* background-color: brown; */
+    justify-content: center;
+}
+
+.nutrition-overview h2{
+    float: left;
+    color: #8e769b;
+    /* margin-left: 15%; */
+    font-size: 40px;
+    /* background-color: blue; */
+
+}
+.nutrition-overview .text{
+    padding: 30px 20px 30px 10px;
+    margin-left: 20%;
+}
+.nutrition-overview span{
+    float: right;
+    margin-right: 25%;
+    font-size: 24px;
+    width: 200px;
+    padding: 10px 12px 10px 12px;
+    background-color: #C0B9F2;
+    text-align: center;
+    justify-content: center;
+    border-radius: 5rem;
+}
+.nutrition-overview span:hover{
+    background-color:#aca6d9;
+}
+.nutrition-overview .record{
+    text-decoration: none;
+    color: white;
+    /* background-color: blue; */
+
+}

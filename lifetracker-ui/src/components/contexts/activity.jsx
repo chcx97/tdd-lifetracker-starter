@@ -18,7 +18,7 @@ export const ActivityContextProvider = ({children}) => {
             //.finally set isLoading state to false, 
     }, [])
     return(
-        <ActivityContext.Provider>
+        <ActivityContext.Provider value={{activity, setActivity, initialized,setInitialized,isLoading,setIsLoading,error,setError}}>
             <>{children}</>
         </ActivityContext.Provider>
     );

@@ -1,11 +1,14 @@
 import { useContext, createContext, useState, useEffect } from "react";
 import apiClient from "../../../services/apiClient";
-const AuthContext = createContext();
-export const AuthContextProvider = ({children}) => {
-    const [user, setUser] = useState({});
+
+const NutritionContext = createContext();
+
+export const NutritionContextProvider = ({children}) => {
+
+    const [nutrition, setNutrition] = useState();
     const [initialized, setInitialized] = useState();
-    const [isProcessing, setIsProcessing] = useState();
-    const [error, setError] = useState();
+    const [isLoading, setIsLoading] = useState();
+    const [error, setError] = useState(null);
 
     useEffect(()=>{
         //checks if jwt token exists in local storage under the
@@ -37,10 +40,10 @@ export const AuthContextProvider = ({children}) => {
         //this function should remove the lifetracker_token from local storage and refresh the page so that all user data is reset
     }
     return(
-        <AuthContext.Provider value={{user, setUser, initialized, setInitialized, isProcessing, setIsProcessing, error, setError}}>
+        <NutritionContext.Provider value={{nutrition, setNutrition, initialized,setInitialized,isLoading,setIsLoading,error,setError}}>
             <>{children}</>
-        </AuthContext.Provider>
-    )
-}
+        </NutritionContext.Provider>
+    );
+};
 
-export const useAuthContext = () => useContext(AuthContext);
+export const useNutritionContext = () => useContext(NutritionContext);

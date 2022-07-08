@@ -2,23 +2,26 @@ import "./LoginForm.css"
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import axios from "axios"
+// import axios from "axios"
+import apiClient from "../../../services/apiClient"
+import { useAuthContext } from "components/contexts/auth"
+
 
 export default function LoginForm(props) {
     const navigate = useNavigate()
     const [form, setForm] = useState({email: "", password:""})
-    const [error, setError] = useState({})
+    const [errors, setErrors] = useState({})
     const [isLoading, setIsLoading] = useState(false)
+    const {user, setUser, setError, setIsProcessing} = useAuthContext();
 
-
-    console.log(15, form, error, isLoading)
+    console.log(15, form, errors, isLoading)
 
     const handleOnChange = (e) =>{
         if (e.target.name === "email"){
             if(e.target.value.indexOf("@") === -1){
-                setError((e) => ({...e, email: "Please enter a valid email"}))
+                setErrors((e) => ({...e, email: "Please enter a valid email"}))
             } else {
-                setError((e)=>({...e, email: null}))
+                setErrors((e)=>({...e, email: null}))
             }
         }
         setForm((f) => ({...f, [e.target.name]: e.target.value}))
@@ -26,33 +29,43 @@ export default function LoginForm(props) {
     const handleOnSubmit = async (e) => {
         e.preventDefault()
         setIsLoading(true)
-        setError((e) => ({ ...e, form: null }))
-    
-        try {
-          const res = await axios.post(`http://localhost:3001/auth/login`, form)
-          if (res?.data) {
-            console.log(12,res.data)
-            props.setAppState(res.data)
-            setIsLoading(false)
-            setForm({email:"", password:""})
-            navigate("/activity")
-          } else {
-            setError((e) => ({ ...e, form: "Invalid email/password combination" }))
-            setIsLoading(false)
-          }
-        } catch (err) {
-          console.log(err)
-          const message = err?.response?.data?.error?.message
-          setError((e) => ({ ...e, form: message ? String(message) : String(err) }))
+        setErrors((e) => ({ ...e, form: null }))
+
+        const {data, error} = await apiClient.login({email: form.email, password: form.password,})
+        if (error) setErrors((e) => ({ ...e, form: error}))
+        console.log(4,data)
+        if (data?.user){
+          setUser(data.user)
+          apiClient.setToken(data.token)
           setIsLoading(false)
+          navigate("/activity")
         }
+        setIsProcessing(false);
+        // try {
+        //   const res = await axios.post(`http://localhost:3001/auth/login`, form)
+        //   if (res?.data) {
+        //     console.log(12,res.data)
+        //     props.setAppState(res.data)
+        //     setIsLoading(false)
+        //     setForm({email:"", password:""})
+        //     navigate("/activity")
+        //   } else {
+        //     setError((e) => ({ ...e, form: "Invalid email/password combination" }))
+        //     setIsLoading(false)
+        //   }
+        // } catch (err) {
+        //   console.log(err)
+        //   const message = err?.response?.data?.error?.message
+        //   setError((e) => ({ ...e, form: message ? String(message) : String(err) }))
+        //   setIsLoading(false)
+        // }
       }
   return (
     <div className='login-form'>
       <div className="card">
         <h2>Login</h2>
 
-        {Boolean(error.form) && <span className="error">{error.form}</span>}
+        {Boolean(errors.form) && <span className="error">{errors.form}</span>}
         <br />
          <div className="form">
           <div className="input-field">
@@ -66,7 +79,7 @@ export default function LoginForm(props) {
               value={form.email}
               onChange={handleOnChange}
             />
-            {error.email && <span className="error">{error.email}</span>}
+            {errors.email && <span className="error">{errors.email}</span>}
          </div>
 
           <div className="input-field">
@@ -81,7 +94,7 @@ export default function LoginForm(props) {
               onChange={handleOnChange}
             />
       </div>
-      {error.password && <span className="error">{error.password}</span>}
+      {errors.password && <span className="error">{errors.password}</span>}
     </div>
     <div className="btn-area">
       <button className="submit-login" disabled={isLoading} onClick={handleOnSubmit}>
