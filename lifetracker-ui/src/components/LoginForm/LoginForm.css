@@ -3,6 +3,8 @@
     width: 400px;
 }
 .login-form .card h2{
+    /* margin-top: -10px; */
+    margin-bottom: -0.001%;
     font-size: 3vw;
     text-align: center;
 }
@@ -44,6 +46,6 @@
 .submit-login:hover{
     background-color: #aca6d9;
 }
-.submit-login:active::after{
+.submit-login:focus{
     background-color: #aca6d9;
 }

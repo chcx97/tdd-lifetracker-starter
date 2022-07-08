@@ -15,7 +15,9 @@
 .registration-form .card h2{
     font-size: 3vw;
     text-align: center;
-    margin-top: -15px;
+    /* margin-top: -15px; */
+    margin-top: -60px;
+    margin-bottom: -1%;
 }
 .registration-form .card .form{
     justify-content: center;
@@ -50,6 +52,6 @@
 .submit-registration:hover{
     background-color: #aca6d9;
 }
-.submit-registration:active::after{
+.submit-registration:focus{
     background-color: #aca6d9;
 }

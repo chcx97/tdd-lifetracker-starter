@@ -1,10 +1,16 @@
+body{
+    background-image: url("./img/grid.jpg");
+}
 .landing{
     width: 80%;
+    height: 100%;
     margin: 0% 0% 5% 10%;
+    background-color: white;
 }
 .landing .hero .hero-img{
+    /* background-color: white; */
     width: 100%;
-    opacity: 65%;
+    opacity: 80%;
     
 }
 .landing .hero .cta{

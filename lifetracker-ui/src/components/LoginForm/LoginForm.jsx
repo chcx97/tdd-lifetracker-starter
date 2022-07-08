@@ -86,6 +86,7 @@ export default function LoginForm(props) {
     <div className="btn-area">
       <button className="submit-login" disabled={isLoading} onClick={handleOnSubmit}>
             {isLoading ? "Loading..." : "Login"}
+            
           </button>
     </div>
     <div className="footer">

@@ -1,6 +1,6 @@
 import * as React from "react"
 import "./App.css"
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Navbar from "components/Navbar/Navbar"
 import Landing from "components/Landing/Landing"
@@ -9,10 +9,23 @@ import RegistrationPage from "components/RegistrationPage/RegistrationPage"
 import ActivityPage from "components/ActivityPage/ActivityPage"
 import NutritionPage from "components/NutritionPage/NutritionPage"
 import NotFound from "components/NotFound/NotFound"
+import {AuthContextProvider} from "components/contexts/auth"
+import { ActivityContextProvider } from "components/contexts/activity"
 
 
-export default function App() {
+export default function AppContainer(){
+  return(
+    <AuthContextProvider>
+      <ActivityContextProvider>
+        <App></App>
+      </ActivityContextProvider>
+    </AuthContextProvider>
+  )
+}
+
+export function App() {
   const [appState, setAppState] = useState({})
+  // const {user, setUser, initialized, setInitialized, isProcessing, setIsProcessing, error, setError} = useContext(Auth)
   return (
     <div className="app">
       <React.Fragment>
