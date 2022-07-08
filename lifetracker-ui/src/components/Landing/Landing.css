@@ -1,7 +1,36 @@
 .landing{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+    width: 80%;
+    margin: 0% 0% 5% 10%;
+}
+.landing .hero .hero-img{
+    width: 100%;
+    opacity: 65%;
+    
+}
+.landing .hero .cta{
+    width: 100%;
+    position: relative;
+    margin-top: -50%;
+    /* margin-left: 10%; */
+    /* background-color: aqua; */
+}
+.landing .hero .cta h1{
+    /* margin-left: 275.5px; */
+    /* background-color: blueviolet; */
+    text-align: center;
+    font-size: 5vw;
+    color: white;
+    font-weight:900;
+    -webkit-text-stroke-width: 1.15px;
+    -webkit-text-stroke-color: #9e85ad;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.landing .hero .cta h2{
+    color: white;
+    font-size: 2.5vw;
+    text-align: center;
+    /* margin-left: 153.5px; */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #9e85ad;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }

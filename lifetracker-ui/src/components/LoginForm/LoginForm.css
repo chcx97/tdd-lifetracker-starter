@@ -1,0 +1,49 @@
+.login-form{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    width: 400px;
+}
+.login-form .card h2{
+    font-size: 3vw;
+    text-align: center;
+}
+.login-form .card .form{
+
+    justify-content: center;
+}
+.login-form .card .form .input-field label{
+
+    justify-content: center;
+}
+.input{
+    width: 400px;
+    padding: 10px 20px 10px 50px;
+    margin-top: 10px;
+    /* margin-bottom: 20px */
+}
+#email{
+    margin-bottom: 5px;
+}
+#pw-input{
+    margin-bottom: 20px;
+}
+.error{
+    color: red;
+}
+.submit-login{
+    text-align: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 24px;
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+    background-color: #C0B9F2;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.submit-login:hover{
+    background-color: #aca6d9;
+}
+.submit-login:active::after{
+    background-color: #aca6d9;
+}

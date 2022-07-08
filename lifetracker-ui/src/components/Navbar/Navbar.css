@@ -24,6 +24,7 @@
 .navbar .header .logo{
     width: 100px;
     margin-right: 600px;
+    margin-left:65px;
 }
 .navlinks-div{
     display: flex;

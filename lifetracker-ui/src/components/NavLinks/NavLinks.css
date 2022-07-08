@@ -1,5 +1,7 @@
 .navlinks{
     display: inline;
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-weight: bold; */
 }
 .navlinks .nav-header{
     display: inline;
@@ -12,6 +14,7 @@
     font-size: 20px;
     height: 50px;
     width: 100px;
+    margin: 20px;
     color: black;
     text-decoration:none;
 }
@@ -30,8 +33,12 @@
     text-align: center;
     font-size: 20px;
     cursor: pointer;
+    /* font-weight: bold; */
 }
 #login:hover{
+    color:#8e769b;
+}
+#register:hover{
     color:#8e769b;
 }
 #sign-out:hover{
@@ -46,10 +53,11 @@
     padding: 5px 24.5px 4px 24.5px;
     background-color: transparent;
     margin-left: 15px;
-    margin-right: 15px;
+    margin-right: 48px;
     width: 100px;
     text-align: center;
     font-size: 20px;
+    /* font-weight: bold; */
 }
 .navlinks .nav-header .register{
     cursor: pointer;
@@ -61,4 +69,5 @@
     height: 37px;
     text-align: center;
     font-size: 20px;
+    /* font-weight: bold; */
 }
