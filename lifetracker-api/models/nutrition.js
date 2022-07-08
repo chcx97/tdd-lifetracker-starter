@@ -46,7 +46,7 @@ class Nutrition{
 
     static async fetchNutritionById(id){
         if (!id){
-            throw new BadRequestError("No id provided")
+            throw new NotFoundError("No id provided")
         }
         const query = `SELECT  nutrition.id,
             nutrition.name,

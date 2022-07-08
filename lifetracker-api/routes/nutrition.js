@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 const Nutrition = require("../models/nutrition")
 const security = require("../middleware/security")
-
+const permissions = require("../middleware/permissions")
 
 router.get("/", security.requireAuthenticatedUser, async(req, res, next) => {
     try {
@@ -30,7 +30,7 @@ router.post("/", security.requireAuthenticatedUser, async(req, res, next) =>{
     }
 })
 
-router.get("/:nutritionId", async(req, res, next) =>{
+router.get("/:nutritionId", security.requireAuthenticatedUser, permissions.authedUserOwnsNutrition, async(req, res, next) =>{
     try {
         //return a json res back with nutrition that matches
         //nutritionId params
