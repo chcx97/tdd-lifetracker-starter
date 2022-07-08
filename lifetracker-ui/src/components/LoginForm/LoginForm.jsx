@@ -37,7 +37,7 @@ export default function LoginForm(props) {
             setForm({email:"", password:""})
             navigate("/activity")
           } else {
-            setError((e) => ({ ...e, form: "Invalid username/password combination" }))
+            setError((e) => ({ ...e, form: "Invalid email/password combination" }))
             setIsLoading(false)
           }
         } catch (err) {
@@ -50,14 +50,16 @@ export default function LoginForm(props) {
   return (
     <div className='login-form'>
       <div className="card">
-        <h2>Login to the Portal</h2>
+        <h2>Login</h2>
 
         {Boolean(error.form) && <span className="error">{error.form}</span>}
         <br />
          <div className="form">
           <div className="input-field">
-            <label htmlFor="email">Email</label>
+            <label className="email" htmlFor="email">Email</label>
             <input
+              id="email"
+              className="input"
               type="email"
               name="email"
               placeholder="user@gmail.com"
@@ -68,8 +70,10 @@ export default function LoginForm(props) {
          </div>
 
           <div className="input-field">
-            <label htmlFor="password">Password</label>
+            <label className="pw" htmlFor="password">Password</label>
             <input
+              id="pw-input"
+              className="input"
               type="password"
               name="password"
               placeholder="Password"
@@ -79,9 +83,11 @@ export default function LoginForm(props) {
       </div>
       {error.password && <span className="error">{error.password}</span>}
     </div>
-    <button className="submit-login" disabled={isLoading} onClick={handleOnSubmit}>
+    <div className="btn-area">
+      <button className="submit-login" disabled={isLoading} onClick={handleOnSubmit}>
             {isLoading ? "Loading..." : "Login"}
           </button>
+    </div>
     <div className="footer">
       <p>
       Don't have an account? Sign up <Link to="/register">here</Link>

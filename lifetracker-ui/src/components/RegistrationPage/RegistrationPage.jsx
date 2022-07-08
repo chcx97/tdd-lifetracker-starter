@@ -104,6 +104,8 @@ export function RegistrationForm(props){
           <div className="input-field">
             <label htmlFor="email">Email</label>
             <input
+              id="input"
+              className="input"
               type="email"
               name="email"
               placeholder="jane@doe.io"
@@ -115,6 +117,8 @@ export function RegistrationForm(props){
           <div className="input-field">
             <label htmlFor="username">Username</label>
             <input
+              id="input"
+              className="input"
               type="text"
               name="username"
               placeholder="username"
@@ -126,6 +130,8 @@ export function RegistrationForm(props){
             <div className="input-field">
               <label htmlFor="name">First Name</label>
               <input
+                id="input"
+                className="input"
                 type="text"
                 name="firstName"
                 placeholder="Jane"
@@ -137,6 +143,8 @@ export function RegistrationForm(props){
             <div className="input-field">
               <label htmlFor="name">Last Name</label>
               <input
+                id="input"
+                className="input"
                 type="text"
                 name="lastName"
                 placeholder="Doe"
@@ -151,6 +159,8 @@ export function RegistrationForm(props){
           <div className="input-field">
             <label htmlFor="password">Password</label>
             <input
+              id="input"
+              className="input"
               type="password"
               name="password"
               placeholder="password"
@@ -163,6 +173,8 @@ export function RegistrationForm(props){
           <div className="input-field">
             <label htmlFor="passwordConfirm">Confirm Password</label>
             <input
+              id="pw-confirm"
+              className="input"
               type="password"
               name="passwordConfirm"
               placeholder="confirm password"

@@ -5,3 +5,51 @@
     margin-right: -50%;
     transform: translate(-50%, -50%)
 }
+.registration-form{
+    margin-top: 340px;
+    padding-bottom: 50px;
+    margin-top: 420px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    width: 400px;
+}
+.registration-form .card h2{
+    font-size: 3vw;
+    text-align: center;
+    margin-top: -15px;
+}
+.registration-form .card .form{
+    justify-content: center;
+}
+.input{
+    width: 400px;
+    padding: 10px 20px 10px 50px;
+    margin-top: 10px;
+    /* margin-bottom: 20px */
+}
+#input{
+    margin-bottom: 5px;
+}
+#pw-confirm{
+    margin-bottom: 20px;
+}
+.error{
+    color: red;
+}
+.submit-registration{
+    text-align: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 24px;
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+    background-color: #C0B9F2;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.submit-registration:hover{
+    background-color: #aca6d9;
+}
+.submit-registration:active::after{
+    background-color: #aca6d9;
+}
