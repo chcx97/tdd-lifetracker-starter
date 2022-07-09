@@ -3,14 +3,15 @@ import { Link, useNavigate } from 'react-router-dom'
 import "./NavLinks.css"
 import { useAuthContext } from 'components/contexts/auth';
 export default function NavLinks(props) {
-  const {user, setUser} = useAuthContext()
+  const {user, setUser, logoutUser} = useAuthContext()
   const navigate = useNavigate();
   console.log(13,props.appState)
   console.log(14, user)
   const logOut = () =>{
+    logoutUser();
     props.setAppState({})
     setUser({})
-    navigate("/login")
+    navigate("/")
   }
 
   return (

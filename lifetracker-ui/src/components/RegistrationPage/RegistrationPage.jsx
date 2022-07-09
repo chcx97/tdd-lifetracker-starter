@@ -30,7 +30,7 @@ export function RegistrationForm(props){
         password: "",
         passwordConfirm: "",
   })
-  const {user, setUser, setError, setIsProcessing} = useAuthContext();
+  const {user, signupUser, setError, error} = useAuthContext();
   const handleOnInputChange = (event) => {
     if (event.target.name === "password") {
       if (form.passwordConfirm && form.passwordConfirm !== event.target.value) {
@@ -67,16 +67,12 @@ export function RegistrationForm(props){
     } else {
       setErrors((e) => ({ ...e, passwordConfirm: null }))
     }
-    const {data, error} = await apiClient.signup({email: form.email, username: form.username, firstName: form.firstName, lastName: form.lastName, password: form.password,})
-    if (error) setErrors((e) => ({ ...e, form: error}))
-    console.log(4,data)
-    if (data?.user){
-      setUser(data.user)
-      apiClient.setToken(data.token)
+    
+    signupUser(form);
+    if(user){
       setIsLoading(false)
       navigate("/activity")
     }
-    setIsProcessing(false);
     
     
     // try {

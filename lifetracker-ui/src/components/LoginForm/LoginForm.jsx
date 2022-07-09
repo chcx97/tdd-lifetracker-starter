@@ -2,8 +2,6 @@ import "./LoginForm.css"
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-// import axios from "axios"
-import apiClient from "../../../services/apiClient"
 import { useAuthContext } from "components/contexts/auth"
 
 
@@ -12,10 +10,10 @@ export default function LoginForm(props) {
     const [form, setForm] = useState({email: "", password:""})
     const [errors, setErrors] = useState({})
     const [isLoading, setIsLoading] = useState(false)
-    const {user, setUser, setError, setIsProcessing} = useAuthContext();
+    const {user, loginUser, setError, error} = useAuthContext();
 
-    console.log(15, form, errors, isLoading)
-
+    console.log(15, form, error, isLoading)
+    console.log(16,Boolean(errors.form));
     const handleOnChange = (e) =>{
         if (e.target.name === "email"){
             if(e.target.value.indexOf("@") === -1){
@@ -30,17 +28,22 @@ export default function LoginForm(props) {
         e.preventDefault()
         setIsLoading(true)
         setErrors((e) => ({ ...e, form: null }))
-
-        const {data, error} = await apiClient.login({email: form.email, password: form.password,})
-        if (error) setErrors((e) => ({ ...e, form: error}))
-        console.log(4,data)
-        if (data?.user){
-          setUser(data.user)
-          apiClient.setToken(data.token)
+        loginUser(form)
+        if (user){
           setIsLoading(false)
           navigate("/activity")
         }
-        setIsProcessing(false);
+
+        // const {data, error} = await apiClient.login({email: form.email, password: form.password,})
+        // if (error) setErrors((e) => ({ ...e, form: error}))
+        // console.log(4,data)
+        // if (data?.user){
+        //   setUser(data.user)
+        //   apiClient.setToken(data.token)
+        //   setIsLoading(false)
+        //   navigate("/activity")
+        // }
+        // setIsProcessing(false);
         // try {
         //   const res = await axios.post(`http://localhost:3001/auth/login`, form)
         //   if (res?.data) {
