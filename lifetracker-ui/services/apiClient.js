@@ -44,8 +44,8 @@ class ApiClient{
         // this.request("post", {}, "auth/login")
     }
     async logoutUser() {
-        this.setToken(null)
-        localStorage.setItem(this.tokenName, "")
+        await this.setToken(null)
+        await localStorage.setItem(this.tokenName, "")
     }
     async fetchUserFromToken(){
         // this.request("get", {}, "auth/me")

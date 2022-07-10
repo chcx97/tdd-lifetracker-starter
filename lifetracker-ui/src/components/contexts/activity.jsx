@@ -1,4 +1,6 @@
 import { useContext, Component, createContext, useState, useEffect } from "react";
+import { useAuthContext } from "./auth";
+
 
 const ActivityContext = createContext({});
 export const ActivityContextProvider = ({children}) => {
@@ -6,7 +8,7 @@ export const ActivityContextProvider = ({children}) => {
     const [initialized, setInitialized] = useState();
     const [isLoading, setIsLoading] = useState();
     const [error, setError] = useState();
-
+    const {fetchUserFromToken} = useAuthContext();
     useEffect(()=>{
         // check to see if a user is logged in
 

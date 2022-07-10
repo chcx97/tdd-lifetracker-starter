@@ -6,16 +6,30 @@ export const AuthContextProvider = ({children}) => {
     const [initialized, setInitialized] = useState();
     const [isProcessing, setIsProcessing] = useState();
     const [error, setError] = useState({});
+    // const [token, setToken] = useState("")
 
-    useEffect(()=>{
+    useEffect(async()=>{
         //checks if jwt token exists in local storage under the
         //lifetracker_token key
         //if it does, it should add the token to apiClient class with setToken
         //else isProcessing state var is set to true and error state set to null
+        console.log(17,"does this work???")
         const token = localStorage.getItem("lifetracker_token");
         if (token){
+            console.log(18, token)
             apiClient.setToken(token);
-            fetchUserFromToken();
+            // await fetchUserFromToken();
+            const {data, error} = await apiClient.fetchUserFromToken()
+            if (error) setErrors((e) => ({ ...e, form: error}))
+            if (data?.token){
+                console.log(17,data)
+                setUser(data.user)
+                // setToken(data.token)
+                console.log(16,user)
+                setError(null)
+            }
+        setIsProcessing(false)
+        setInitialized(true)
         }else{
             setIsProcessing(true)
             setError(null)
@@ -34,6 +48,8 @@ export const AuthContextProvider = ({children}) => {
         if (data?.user){
           setUser(data.user)
           apiClient.setToken(data.token)
+        //   setToken(data.token)
+        //   setToken(data.token)
         //   setIsLoading(false)
         //   navigate("/activity")
         }
@@ -60,7 +76,10 @@ export const AuthContextProvider = ({children}) => {
         const {data, error} = await apiClient.fetchUserFromToken()
         if (error) setErrors((e) => ({ ...e, form: error}))
         if (data?.token){
+          console.log(17,data)
           setUser(data.user)
+        //   setToken(data.token)
+          console.log(16,user)
           setError(null)
         }
         setIsProcessing(false)
@@ -69,10 +88,12 @@ export const AuthContextProvider = ({children}) => {
     const logoutUser = () => {
         //this function should remove the lifetracker_token from local storage and refresh the page so that all user data is reset
         apiClient.logoutUser()
+        // setToken("")
+        // apiClient.setToken(null)
         setUser({})
     }
     return(
-        <AuthContext.Provider value={{ signupUser, logoutUser, fetchUserFromToken, loginUser, user, setUser, initialized, setInitialized, isProcessing, setIsProcessing, error, setError}}>
+        <AuthContext.Provider value={{signupUser, logoutUser, fetchUserFromToken, loginUser, user, setUser, initialized, setInitialized, isProcessing, setIsProcessing, error, setError}}>
             <>{children}</>
         </AuthContext.Provider>
     )

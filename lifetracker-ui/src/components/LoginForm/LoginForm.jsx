@@ -12,7 +12,7 @@ export default function LoginForm(props) {
     const [isLoading, setIsLoading] = useState(false)
     const {user, loginUser, setError, error} = useAuthContext();
 
-    console.log(15, form, error, isLoading)
+    console.log(15, form, error, isLoading, user)
     console.log(16,Boolean(errors.form));
     const handleOnChange = (e) =>{
         if (e.target.name === "email"){

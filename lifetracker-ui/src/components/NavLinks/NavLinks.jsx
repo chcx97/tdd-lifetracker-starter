@@ -3,14 +3,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import "./NavLinks.css"
 import { useAuthContext } from 'components/contexts/auth';
 export default function NavLinks(props) {
-  const {user, setUser, logoutUser} = useAuthContext()
+  const {user, logoutUser} = useAuthContext()
   const navigate = useNavigate();
   console.log(13,props.appState)
-  console.log(14, user)
+  console.log(14, user, localStorage.getItem("lifetracker_token"))
   const logOut = () =>{
     logoutUser();
     props.setAppState({})
-    setUser({})
     navigate("/")
   }
 
@@ -18,7 +17,7 @@ export default function NavLinks(props) {
     <div className='navlinks'>
       <span className='nav-header'>
           {/* {Object.keys(props.appState).length !== 0 ?  */}
-          { Object.keys(user).length !==0 ?
+          { localStorage.getItem("lifetracker_token") !== "" ?
           <span className='logged-in'>
             <Link id='activity' className='links' to="/activity">Activity</Link>
             <Link className='links' to="/nutrition">Nutrition</Link>
