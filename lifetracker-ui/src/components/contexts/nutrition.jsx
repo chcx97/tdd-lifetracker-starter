@@ -12,7 +12,7 @@ export const NutritionContextProvider = ({children}) => {
     const [error, setError] = useState(null);
     const {fetchUserFromToken, user} = useAuthContext();
 
-    useEffect(()=>{
+    useEffect(async()=>{
         //checks if jwt token exists in local storage under the
         //lifetracker_token key
         //if it does, it should add the token to apiClient class with setToken
@@ -20,12 +20,17 @@ export const NutritionContextProvider = ({children}) => {
         fetchUserFromToken();
         if (user){
             setIsLoading(true)
+            const {data, error} = await apiClient.listNutrition()
+            if (error) setError((e) => ({...e, error}))
+            if (data?.nutrition){
+                setNutrition(data.nutrition)
+                setError(null)
+            }
             // setError(null)
              //get request to /activity endpoint
              //If all goes well...
             //It should set the data as the activity state variable
             //It should set the error state variable to null
-            setError(null)
         }
         setIsLoading(false)
         setInitialized(true)

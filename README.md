@@ -355,10 +355,10 @@ The components in the `App.jsx` file should render the following components (alo
         - [x] That hook should check to see if a user is logged in.
         - [x] If a user is logged in...
           - [x] Set the `isLoading` state variable to `true`
-          - [ ] Then, it should make a `GET` request to the `/nutritions` endpoint
-            - [ ] If there is an error with the request, it should set a message as the `error` state variable
-            - [ ] If all goes well:
-              - [ ] It should set the data as the `nutritions` state variable
+          - [x] Then, it should make a `GET` request to the `/nutritions` endpoint
+            - [x] If there is an error with the request, it should set a message as the `error` state variable
+            - [x] If all goes well:
+              - [x] It should set the data as the `nutritions` state variable
           - [x] Regardless, at the end, set the `isLoading` state variable to `false` and the `initialized` state variable to `true`
       - [x] Make sure to pass an object containing all the state variables to the `value` prop of the `NutritionContext.Provider` component
     - [x] Create and export a `useNutritionContext` hook that calls the `React.useContext` hook with the newly created `NutritionContext` and returns it.
