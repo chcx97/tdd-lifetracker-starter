@@ -6,7 +6,7 @@ const NutritionContext = createContext();
 
 export const NutritionContextProvider = ({children}) => {
 
-    const [nutrition, setNutrition] = useState();
+    const [nutrition, setNutrition] = useState([]);
     const [initialized, setInitialized] = useState();
     const [isLoading, setIsLoading] = useState();
     const [error, setError] = useState(null);
@@ -17,12 +17,16 @@ export const NutritionContextProvider = ({children}) => {
         //lifetracker_token key
         //if it does, it should add the token to apiClient class with setToken
         //else isProcessing state var is set to true and error state set to null
-        fetchUserFromToken();
-        if (user){
-            setIsLoading(true)
-            const {data, error} = await apiClient.listNutrition()
-            if (error) setError((e) => ({...e, error}))
-            if (data?.nutrition){
+        const token = localStorage.getItem("lifetracker_token")
+        if (token){
+            apiClient.setToken(token)
+            fetchUserFromToken();
+            if (user){
+                setIsLoading(true)
+                const {data, error} = await apiClient.listNutrition()
+                console.log(36,error)
+                if (error) setError((e) => ({...e, error}))
+                if (data?.nutrition){
                 setNutrition(data.nutrition)
                 setError(null)
             }
@@ -31,7 +35,9 @@ export const NutritionContextProvider = ({children}) => {
              //If all goes well...
             //It should set the data as the activity state variable
             //It should set the error state variable to null
+            }
         }
+        
         setIsLoading(false)
         setInitialized(true)
         //next send get request to auth/me endpoint

@@ -44,7 +44,7 @@ export const AuthContextProvider = ({children}) => {
     const loginUser = async(form) => {
         //should make a request to log the user in
         const {data, error} = await apiClient.login({email: form.email, password: form.password,})
-        if (error) setErrors((e) => ({ ...e, form: error}))
+        if (error) setError((e) => ({ ...e, form: error}))
         if (data?.user){
           setUser(data.user)
           apiClient.setToken(data.token)
@@ -57,7 +57,7 @@ export const AuthContextProvider = ({children}) => {
     }
     const signupUser = async(form) => {
         const {data, error} = await apiClient.signup({email: form.email, username: form.username, firstName: form.firstName, lastName: form.lastName, password: form.password})
-        if (error) setErrors((e) => ({ ...e, form: error}))
+        if (error) setError((e) => ({ ...e, form: error}))
         console.log(4,data)
         if (data?.user){
           setUser(data.user)
@@ -74,7 +74,7 @@ export const AuthContextProvider = ({children}) => {
     const fetchUserFromToken = async() => {
         //should make a request to the /auth/me route to get the user's info
         const {data, error} = await apiClient.fetchUserFromToken()
-        if (error) setErrors((e) => ({ ...e, form: error}))
+        if (error) setError((e) => ({ ...e, form: error}))
         if (data?.token){
           console.log(17,data)
           setUser(data.user)

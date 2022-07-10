@@ -8,20 +8,21 @@ import { Link } from 'react-router-dom';
 export default function NutritionOverview() {
     // const {initialized,setInitialized,isLoading,setIsLoading,error,setError} = useNutritionContext()
     const {nutrition, setNutrition, initialized,setInitialized,isLoading,setIsLoading,error,setError} = useNutritionContext();
-  return (
+    console.log(15,error)
+    return (
     <div className='nutrition-overview'>
       <div>
         <div className='text'>
           <h2>Overview</h2>
         </div>
           <span>
-            <Link className='record' to="/create">Record Nutrition</Link>
+            <Link className='record' to="/nutrition/create">Record Nutrition</Link>
           </span>
        </div>
         <br/>  
         <br/>
         <div>
-          {error && <span className='error'></span>}
+          {error && <span className='error'>there's an error</span>}
           {isLoading ? <Loading/> : <NutritionFeed/>}
         </div>
     </div>
