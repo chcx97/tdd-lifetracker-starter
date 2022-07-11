@@ -2,13 +2,19 @@
     width: 100%;
     /* background-color: brown; */
     justify-content: center;
+    border: solid;
+    border-color: #a1bafe;
+    background-color: white;
+    border-width: 1px;
+    /* background-color: blueviolet; */
 }
 
-.nutrition-overview h2{
+.nutrition-overview .overview{
     float: left;
     color: #8e769b;
     /* margin-left: 15%; */
     font-size: 40px;
+    /* border: solid; */
     /* background-color: blue; */
 
 }
@@ -16,7 +22,7 @@
     padding: 30px 20px 30px 10px;
     margin-left: 20%;
 }
-.nutrition-overview span{
+.nutrition-overview .record-link{
     float: right;
     margin-right: 25%;
     font-size: 24px;
@@ -35,4 +41,13 @@
     color: white;
     /* background-color: blue; */
 
+}
+.nutrition-overview .feed{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-gap: 10px;
+    gap: 10px;
+    margin-top: 50px;
+    padding-bottom: 50px;
 }

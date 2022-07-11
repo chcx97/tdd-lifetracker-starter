@@ -27,7 +27,7 @@ export const NutritionContextProvider = ({children}) => {
                 console.log(36,error)
                 if (error) setError((e) => ({...e, error}))
                 if (data?.nutrition){
-                setNutrition(data.nutrition)
+                setNutrition((nutrition) => [...nutrition, ...data.nutrition])
                 setError(null)
             }
             // setError(null)
@@ -46,8 +46,33 @@ export const NutritionContextProvider = ({children}) => {
         //always set (.finally) isProcessing set to false and initialized to true
     },[])
 
+    const listNutrition = async() =>{
+        const {data, error} = await apiClient.listNutrition()
+        if (error) setError((e) => ({...e, error}))
+        if (data?.nutrition){
+            setNutrition((nutrition) => [...nutrition, {...data.nutrition}])
+            setError(null)
+        }
+    }
+    const fetchNutrition = async() => {
+        const {data, error} = await apiClient.fetchNutrition()
+        if (error) setError((e) => ({...e, error}))
+        if (data?.nutrition){
+            setNutrition((nutrition) => [...nutrition, {...data.nutrition}])
+            setError(null)
+        }
+    }
+
+    const createNutrition = async(form) => {
+        const {data, error} = await apiClient.createNutrition(form)
+        if (error) setError((e) => ({...e, error}))
+        if (data?.nutrition){
+            setNutrition((nutrition) => [...nutrition, {...data.nutrition}])
+            setError(null)
+        }
+    }
     return(
-        <NutritionContext.Provider value={{nutrition, setNutrition, initialized,setInitialized,isLoading,setIsLoading,error,setError}}>
+        <NutritionContext.Provider value={{ createNutrition, fetchNutrition,listNutrition,nutrition, setNutrition, initialized,setInitialized,isLoading,setIsLoading,error,setError}}>
             <>{children}</>
         </NutritionContext.Provider>
     );

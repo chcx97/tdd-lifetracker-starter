@@ -149,17 +149,17 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] `DEVELOPMENT_API_BASE_URL` - set to "http://localhost:3001" for development
       - [x] `API_BASE_URL` - if `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
     - [x] Next, create a `services` directory at the root of the project
-    - [ ] Inside that directory, touch an `apiClient.js` file
-    - [ ] In that file, import the `axios` package and the `API_BASE_URL` constant from the `constants.js` file
-    - [ ] Define a new class in that file called `ApiClient`.
-      - [ ] Give it a constructor function that accepts a single parameter - `remoteHostUrl`. The constructor should attach the `remoteHostUrl` parameter to a new instance with `this.remoteHostUrl = remoteHostUrl`. It should also set `this.token = null`.
-      - [ ] Export default a new instance of the `ApiClient` class
-      - [ ] Add an additional method called `setToken` that accepts a single parameter - `token` and attaches it to the instance.
-      - [ ] Create a utility method called `request` that uses `axios` to issue HTTP requests
-      - [ ] Add a `login` method that uses the `request` method to send an HTTP request to the `auth/login` endpoint
-      - [ ] Add a `signup` method that uses the `request` method to send an HTTP request to the `auth/register` endpoint
-      - [ ] Add a `fetchUserFromToken` method that uses the `request` method to send an HTTP request to the `auth/me` endpoint
-      - [ ] **Add as many other methods as needed when making API requests**
+    - [x] Inside that directory, touch an `apiClient.js` file
+    - [x] In that file, import the `axios` package and the `API_BASE_URL` constant from the `constants.js` file
+    - [x] Define a new class in that file called `ApiClient`.
+      - [x] Give it a constructor function that accepts a single parameter - `remoteHostUrl`. The constructor should attach the `remoteHostUrl` parameter to a new instance with `this.remoteHostUrl = remoteHostUrl`. It should also set `this.token = null`.
+      - [x] Export default a new instance of the `ApiClient` class
+      - [x] Add an additional method called `setToken` that accepts a single parameter - `token` and attaches it to the instance.
+      - [x] Create a utility method called `request` that uses `axios` to issue HTTP requests
+      - [x] Add a `login` method that uses the `request` method to send an HTTP request to the `auth/login` endpoint
+      - [x] Add a `signup` method that uses the `request` method to send an HTTP request to the `auth/register` endpoint
+      - [x] Add a `fetchUserFromToken` method that uses the `request` method to send an HTTP request to the `auth/me` endpoint
+      - [x] **Add as many other methods as needed when making API requests**
 
   - [x] Create an **`auth`** context:
 
@@ -404,20 +404,20 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] `calories` - number of calories in the nutrition item (defaults to 1)
       - [x] `imageUrl` - the `url` of an image to show for this nutrition item (defaults to an empty string)
       - [x] `category` - the category that this nutrition item belongs to, like fruit, meat, soda, snack, nuts, etc. (defaults to an empty string)
-    - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
-      - [ ] `name` - the `name` of the `input` field being rendered (`name`, `calories`, `imageUrl`, `category`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
-      - [ ] `value` - the current value of the `input` element
-      - [ ] `onChange` - the `onChange` handler function
-    - [ ] The component should gracefully handle errors:
-      - [ ] If any of the required fields are left blank, there should be an error message inside of an element with the `className` of `error` indicating which fields are required.
-      - [ ] If the user has attempted to create a nutrition entry and gotten a `400` or `422` error, then that message should be displayed inside an element with the `className` of `error`
-    - [ ] There should be a `button` element with the `className` of `submit-nutrition`:
-      - [ ] It should contain the text `"Save"`
-      - [ ] When clicked, it should call a function that creates a new nutrition entry
-    - [ ] After the form has been succesfully submitted:
-      - [ ] Ensure that the new nutrition entry is stored in the `nutrition` context's `nutritions` array and is displayed in the `NutritionFeed.jsx` component
-      - [ ] Refetch the `activity` data so that new summary stats will be calculated
+    - [x] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
+      - [x] `name` - the `name` of the `input` field being rendered (`name`, `calories`, `imageUrl`, `category`)
+      - [x] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+      - [x] `value` - the current value of the `input` element
+      - [x] `onChange` - the `onChange` handler function
+    - [x] The component should gracefully handle errors:
+      - [x] If any of the required fields are left blank, there should be an error message inside of an element with the `className` of `error` indicating which fields are required.
+      - [x] If the user has attempted to create a nutrition entry and gotten a `400` or `422` error, then that message should be displayed inside an element with the `className` of `error`
+    - [x] There should be a `button` element with the `className` of `submit-nutrition`:
+      - [x] It should contain the text `"Save"`
+      - [x] When clicked, it should call a function that creates a new nutrition entry
+    - [x] After the form has been succesfully submitted:
+      - [x] Ensure that the new nutrition entry is stored in the `nutrition` context's `nutritions` array and is displayed in the `NutritionFeed.jsx` component
+      - [x] Refetch the `activity` data so that new summary stats will be calculated
 
   - [ ] The **`NutritionDetail.jsx`** component:
 
@@ -432,19 +432,19 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`NutritionCard.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-card`
-    - [ ] Should accept **at least** the following props:
-      - [ ] `nutrition` - should be a nutrition entry object containing the following attributes:
-        - [ ] `imageUrl` - (not required)
-        - [ ] `name` - (required)
-        - [ ] `calories` - (required)
-        - [ ] `category` - (required)
-        - [ ] `createdAt` - (required)
-    - [ ] It should render the `name` of the `nutrition` entry inside an element with the `className` of `nutrition-name`
-    - [ ] If the `nutrition` entry has a valid `imageUrl` attribute, it should render an `img` element with the `className` of `nutrition-image` and use that `imageUrl` as its `src`
-    - [ ] It should render the `calories` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-calories`
-    - [ ] It should render the `category` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-category`
-    - [ ] It should render the `createdAt` attribute of the `nutrition` entry in the format `dd/mm/yyyy` - example: `07/02/2022` - inside an element with the `className` of `nutrition-date`.
+    - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-card`
+    - [x] Should accept **at least** the following props:
+      - [x] `nutrition` - should be a nutrition entry object containing the following attributes:
+        - [x] `imageUrl` - (not required)
+        - [x] `name` - (required)
+        - [x] `calories` - (required)
+        - [x] `category` - (required)
+        - [x] `createdAt` - (required)
+    - [x] It should render the `name` of the `nutrition` entry inside an element with the `className` of `nutrition-name`
+    - [x] If the `nutrition` entry has a valid `imageUrl` attribute, it should render an `img` element with the `className` of `nutrition-image` and use that `imageUrl` as its `src`
+    - [x] It should render the `calories` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-calories`
+    - [x] It should render the `category` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-category`
+    - [x] It should render the `createdAt` attribute of the `nutrition` entry in the format `dd/mm/yyyy` - example: `07/02/2022` - inside an element with the `className` of `nutrition-date`.
 
   - [ ] DO THE SAME FOR ANY OTHER RESOURCE THAT IS IN THE APPLICATION
 

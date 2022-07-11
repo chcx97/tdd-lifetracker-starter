@@ -1,0 +1,70 @@
+.nutrition-card{
+    color:white;
+    width: 360px;
+    height: 260px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 16px 32px;
+    padding-bottom: 230px;
+    /* padding: 32px 32px 32px 32px; */
+    margin-right: 25px;
+    margin-left: 25px;
+    /* background-color: #aca6d9; */
+    background-color: #a1bafe;
+}
+.card-header{
+    /* background-color: brown; */
+    width: 100%;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+}
+.nutrition-card .card-header .image{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.nutrition-card .card-header .name{
+    font-size: 20px;
+}
+.card-stats{
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    /* background-color: yellow; */
+    padding-bottom: 20px;
+}
+.CardStat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-stats .CardStat .card-stat-name{
+    font-size: 20px;
+    font-weight: 650;
+}
+.card-meta{
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    /* background-color: orange; */
+    /* padding-bottom: 15px; */
+}
+.time{
+    font-size: 14px;
+    font-weight: 500;
+}
+.category{
+    border: solid;
+    padding: 5px 5px 5px 5px;
+    border-radius: 20%;
+    border-width: 1px;
+    font-size: 14px;
+    font-weight: 500;
+}

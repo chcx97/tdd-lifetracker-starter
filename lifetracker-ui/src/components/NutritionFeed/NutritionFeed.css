@@ -1,5 +1,14 @@
 .nutrition-feed{
+    /* background-color: red; */
     font-size: 24px;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: 50px 0px 50px 0px;
+    width: 100%;
+    align-self:center;
+    /* border: solid; */
+    /* justify-content: center; */
     /* background-color: green; */
 }
 .nutrition-feed h3{

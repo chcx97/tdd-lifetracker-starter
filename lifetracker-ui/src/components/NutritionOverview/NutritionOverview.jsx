@@ -13,15 +13,15 @@ export default function NutritionOverview() {
     <div className='nutrition-overview'>
       <div>
         <div className='text'>
-          <h2>Overview</h2>
+          <h2 className='overview'>Overview</h2>
         </div>
-          <span>
+          <span className='record-link'>
             <Link className='record' to="/nutrition/create">Record Nutrition</Link>
           </span>
        </div>
         <br/>  
         <br/>
-        <div>
+        <div className='feed'>
           {error && <span className='error'>there's an error</span>}
           {isLoading ? <Loading/> : <NutritionFeed/>}
         </div>
