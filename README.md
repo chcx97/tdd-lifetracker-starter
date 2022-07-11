@@ -37,7 +37,7 @@ Building this application you will accomplish the following:
 
 ## Walkthrough Video
 
-### Walkthrough 1
+### Walkthrough 2
 
 <img src='walkthrough2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
