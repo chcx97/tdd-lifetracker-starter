@@ -27,36 +27,36 @@ export default function NutritionForm() {
   }
   return (
     <div className='nutrition-form'>
-        <h2>Record Nutrition</h2>
+        <h2 className='record-title'>Record Nutrition</h2>
         
         {Boolean(errors.form) && <span className='error'>{errors.form}</span>}
         <br/>
         <div className='form'>
         <div className='input-field'>
             <label className='nutrition-name'>Name</label>
-            <input id='nutrition-name' type="text" name="name" placeholder="Nutrition name" onChange={handleOnChange} value={nutritionForm.name}></input>
+            <input className="input" id='nutrition-name' type="text" name="name" placeholder="Nutrition name" onChange={handleOnChange} value={nutritionForm.name}></input>
         </div>
         {errors.name && <span className='error'>{errors.name}</span>}
         <div className='input-field'>
             <label className='nutrition-category'>Category</label>
-            <input id='nutrition-category' type="text" name="category" placeholder="Nutrition category" onChange={handleOnChange} value={nutritionForm.category}></input>
+            <input id='nutrition-category' className="input" type="text" name="category" placeholder="Nutrition category" onChange={handleOnChange} value={nutritionForm.category}></input>
         </div>
         {errors.category && <span className='error'>{errors.category}</span>}
         <div className='split-input-form'>
             <div className='input-field'>
                 <label className='nutrition-quantity'>Quantity</label>
-                <input id='nutrition-quantity' type="number" name="quantity" min="0" max="10000000000" onChange={handleOnChange} value={nutritionForm.quantity}></input>
+                <input className="input-split" id='nutrition-quantity' type="number" name="quantity" min="0" max="10000000000" onChange={handleOnChange} value={nutritionForm.quantity}></input>
             </div>
             {errors.quantity && <span className='error'>{errors.quantity}</span>}
             <div className='input-field'>
                 <label className='nutrition-calories'>Calories</label>
-                <input id='nutrition-calories' type="number" name="calories" min="0" max="10000000000" step="10" onChange={handleOnChange} value={nutritionForm.calories}></input>
+                <input className="input-split" id='nutrition-calories' type="number" name="calories" min="0" max="10000000000" step="10" onChange={handleOnChange} value={nutritionForm.calories}></input>
             </div>
             {errors.calories && <span className='error'>{errors.calories}</span>}
         </div>
         <div className='input-field'>
             <label className='nutrition-imageUrl'>Image Url</label>
-            <input id='nutrition-imageUrl' type="text" name="imageUrl" placeholder="http://www.food-image.com/1" onChange={handleOnChange} value={nutritionForm.imageUrl}></input>
+            <input className="input" id='nutrition-imageUrl' type="text" name="imageUrl" placeholder="http://www.food-image.com/1" onChange={handleOnChange} value={nutritionForm.imageUrl}></input>
         </div>
             {errors.imageUrl && <span className='error'>{errors.imageUrl}</span>}
         </div>

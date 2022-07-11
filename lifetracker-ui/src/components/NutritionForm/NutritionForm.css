@@ -1,0 +1,65 @@
+.nutrition-form{
+    /* background-color: blue; */
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    width: 600px;
+    margin-left: 25%;
+    
+}
+.nutrition-form .record-title{
+    /* margin-left: 30%; */
+    text-align: center;
+}
+.nutrition-form .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 20px;
+    
+    /* justify-content: center; */
+    /* justify-items: center; */
+    /* background-color: pink; */
+}
+.input-field{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    flex: 1 1;
+}
+.nutrition-form .form .split-input-form{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+}
+.input{
+    width: 100%;
+    padding: 10px 20px 10px 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.input-split{
+    width: 100%;
+    padding: 10px 20px 10px 50px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.submit-nutrition{
+    text-align: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 24px;
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+    background-color: #C0B9F2;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.submit-nutrition:hover{
+    background-color: #aca6d9;
+}
+.submit-nutrition:focus{
+    background-color: #aca6d9;
+}

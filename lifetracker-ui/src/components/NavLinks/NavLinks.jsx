@@ -5,8 +5,14 @@ import { useAuthContext } from 'components/contexts/auth';
 export default function NavLinks(props) {
   const {user, logoutUser} = useAuthContext()
   const navigate = useNavigate();
-  console.log(13,props.appState)
-  console.log(14, user, localStorage.getItem("lifetracker_token"))
+  // console.log(13,props.appState)
+  // console.log(13, user)
+  // console.log()
+     //{/* {Object.keys(props.appState).length === 0 ?  */}
+       //   {/* { user ?
+         // : null} */}
+  console.log(13, user)
+  console.log(14,localStorage.getItem("lifetracker_token"))
   const logOut = () =>{
     logoutUser();
     props.setAppState({})
@@ -16,8 +22,8 @@ export default function NavLinks(props) {
   return (
     <div className='navlinks'>
       <span className='nav-header'>
-          {/* {Object.keys(props.appState).length !== 0 ?  */}
-          { localStorage.getItem("lifetracker_token") !== "" ?
+         
+          { (localStorage.getItem("lifetracker_token") !== "" ) ?
           <span className='logged-in'>
             <Link id='activity' className='links' to="/activity">Activity</Link>
             <Link className='links' to="/nutrition">Nutrition</Link>
@@ -29,9 +35,7 @@ export default function NavLinks(props) {
           <button id='login' className='login' onClick={()=>navigate("/login")} >Login</button>
           <button id='register' className='register' onClick={()=>navigate("/register")}>Sign Up</button>
         </span>}
-          {/* {Object.keys(props.appState).length === 0 ?  */}
-          {/* { user ?
-          : null} */}
+       
       </span>
     </div>
   )

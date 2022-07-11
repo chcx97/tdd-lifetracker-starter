@@ -7,10 +7,13 @@ import { useAuthContext } from "components/contexts/auth"
 
 export default function LoginPage(props) {
     const navigate = useNavigate()
-    const {token} = useAuthContext()
+    const {user} = useAuthContext()
+    const token = localStorage.getItem("lifetracker_token")
+    //(Object.keys(user).length===0)
+    // console.log(13,user)
     return (
         <div className="login-page">
-        {!token ? <LoginForm setAppState={props.setAppState} appState = {props.appState} />: navigate("/activity")}
+        {(Object.keys(user).length===0) ? <LoginForm setAppState={props.setAppState} appState = {props.appState} />: navigate("/activity")}
         </div>
     )
 }

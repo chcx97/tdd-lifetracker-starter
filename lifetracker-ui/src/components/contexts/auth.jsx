@@ -17,17 +17,20 @@ export const AuthContextProvider = ({children}) => {
         const token = localStorage.getItem("lifetracker_token");
         if (token){
             console.log(18, token)
-            apiClient.setToken(token);
+            await apiClient.setToken(token);
             // await fetchUserFromToken();
             const {data, error} = await apiClient.fetchUserFromToken()
-            if (error) setErrors((e) => ({ ...e, form: error}))
+            console.log(data)
+            console.log(error)
             if (data?.token){
                 console.log(17,data)
                 setUser(data.user)
                 // setToken(data.token)
-                console.log(16,user)
+                console.log(20,user)
                 setError(null)
             }
+            if (error) setErrors((e) => ({ ...e, form: error}))
+            
         setIsProcessing(false)
         setInitialized(true)
         }else{

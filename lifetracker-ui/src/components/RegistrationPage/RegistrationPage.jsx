@@ -8,11 +8,11 @@ import { useAuthContext } from "components/contexts/auth"
 
 export default function RegistrationPage(props) {
   const navigate = useNavigate()
-
+  const {user} = useAuthContext()
   // const {}
     return (
         <div className="registration-page">
-        {(Object.keys(props.appState).length===0) ?  <RegistrationForm setAppState={props.setAppState}/> : navigate("/activity")}
+        {(Object.keys(user).length===0) ?  <RegistrationForm setAppState={props.setAppState}/> : navigate("/activity")}
            
         </div>
     )
